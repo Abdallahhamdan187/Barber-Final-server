@@ -36,9 +36,13 @@ userRoutes.get("/", async (req, res) => {
 
 // localhost:5000/api/users/:id
 userRoutes.get("/:id", async (req, res) => {
-    //fetch users from database
-    const result = await pgclient.query("SELECT user_id, full_name, email, role FROM barberschema.users WHERE user_id = $1", [req.params.id]);
-    res.json(result.rows[0]);
+    try {
+        //fetch users from database
+        const result = await pgclient.query("SELECT user_id, full_name, email, role FROM barberschema.users WHERE user_id = $1", [req.params.id]);
+        res.json(result.rows[0]);
+    } catch (error) {
+        res.status(500).json({ error: "Internal server error" });
+    }
 });
 
 
@@ -46,8 +50,9 @@ userRoutes.get("/:id", async (req, res) => {
 
 // localhost:5000/api/users/:id/appointments
 userRoutes.get("/:id/appointments", async (req, res) => {
-    //fetch appointment for the user from database
-    const result = await pgclient.query(`SELECT 
+    try {
+        //fetch appointment for the user from database
+        const result = await pgclient.query(`SELECT 
           a.appointment_id,
  to_char(a.appt_date, 'YYYY-MM-DD') AS appt_date,
            a.appt_time,
@@ -60,9 +65,12 @@ userRoutes.get("/:id/appointments", async (req, res) => {
        JOIN barberschema.barbers b ON b.barber_id = a.barber_id
        WHERE a.user_id = $1
        ORDER BY a.appt_date DESC, a.appt_time DESC`,
-        [req.params.id]);
+            [req.params.id]);
 
-    res.json(result.rows);
+        res.json(result.rows);
+    } catch (error) {
+        res.status(500).json({ error: "Internal server error" });
+    }
 });
 
 // localhost:5000/api/users/:id/appointments
