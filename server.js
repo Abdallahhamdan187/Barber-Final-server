@@ -2,10 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import pgclient from "./db.js";
-import userRoutes from "./routes/userroutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
-    const app = express();//use all the methods of express
+const app = express();//use all the methods of express
 
 dotenv.config();
 const port = process.env.Port;
