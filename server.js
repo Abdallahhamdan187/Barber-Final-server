@@ -8,7 +8,7 @@ import adminRoutes from "./routes/adminRoutes.js";
 const app = express();//use all the methods of express
 
 dotenv.config();
-const port = process.env.Port;
+const port = process.env.PORT || process.env.Port || 5000;
 
 //middeleware
 app.use(cors());//open to all origins
