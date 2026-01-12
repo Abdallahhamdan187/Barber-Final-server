@@ -4,7 +4,7 @@ import adminAuth from "../middelware/adminAuth.js";
 const adminRoutes = express.Router();
 
 
-// localhost:5000/api/admin/dashboard
+// localhost:5000/api/admin/dashboard/stats
 adminRoutes.get("/dashboard/stats", adminAuth, async (req, res) => {
     try {
         const totalappontment = await pgClient.query("SELECT COUNT(*) ::int as total FROM barberschema.appointments");
