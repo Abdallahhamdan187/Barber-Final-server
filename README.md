@@ -29,12 +29,9 @@ npm install
 ```
 Create a database.
 ```
-## 3️⃣ Run database schema
-```
-psql -d barber_db -f schema.sql
-```
 
-## 4️⃣ Configure environment variables
+
+##  3️⃣Configure environment variables
 
 Create a `.env` file:
 
@@ -43,7 +40,7 @@ Port=5000
 DATABASE_URL=postgresql://user:password@localhost:5432/barber_db
 ```
 
-## 5️⃣ Start the server
+## 4️⃣ Start the server
 
 node server.js
 
