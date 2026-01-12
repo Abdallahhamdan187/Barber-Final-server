@@ -11,8 +11,15 @@ dotenv.config();
 const port = process.env.PORT || process.env.Port || 5000;
 
 //middeleware
-app.use(cors());
-app.options("*", cors());
+app.use(cors({
+    origin: "https://barber-final-client-production.up.railway.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "x-role"]
+}));
+
+app.options(/.*/, cors());
+
+app.use(express.json());
 app.use(express.json());//to parse json body
 //app.use(cors({ origin: "localhost:5173" }));//only allow my react app to access the server
 
