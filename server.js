@@ -11,7 +11,8 @@ dotenv.config();
 const port = process.env.PORT || process.env.Port || 5000;
 
 //middeleware
-app.use(cors());//open to all origins
+app.use(cors());
+app.options("*", cors());
 app.use(express.json());//to parse json body
 //app.use(cors({ origin: "localhost:5173" }));//only allow my react app to access the server
 
