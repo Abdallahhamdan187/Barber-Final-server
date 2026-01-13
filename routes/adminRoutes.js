@@ -179,7 +179,7 @@ adminRoutes.put("/barbers/:id", adminAuth, async (req, res) => {
 adminRoutes.delete("/barbers/:id", adminAuth, async (req, res) => {
     try {
         const result = await pgClient.query("DELETE FROM barberschema.barbers WHERE barber_id = $1 RETURNING *", [req.params.id]);
-        res.json({ message: "Barber deleted", barber: result.rows[0] });
+        res.json({ message: "Deleted Barber", barber: result.rows[0] });
     } catch (error) {
         res.status(500).json({ error: "Internal server error" });
     }
