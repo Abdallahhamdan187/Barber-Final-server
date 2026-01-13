@@ -121,7 +121,7 @@ userRoutes.put("/:userId/appointments/:appointmentId/cancel", async (req, res) =
     }
 });
 
-userRoutes.delete("/:userId/appointments/:appointmentId/Delete", async (req, res) => {
+userRoutes.delete("/:userId/appointments/:appointmentId/delete", async (req, res) => {
     //DELETE appointment from database
 
     try {
