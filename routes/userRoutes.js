@@ -122,7 +122,7 @@ userRoutes.put("/:userId/appointments/:appointmentId/cancel", async (req, res) =
 });
 
 userRoutes.delete("/:userId/appointments/:appointmentId/delete", async (req, res) => {
-    //DELETE appointment from database
+    //delete appointment from database
 
     try {
         const result = await pgclient.query("DELETE FROM barberschema.appointments WHERE appointment_id=$1 AND user_id=$2 RETURNING *", [req.params.appointmentId, req.params.userId]);
