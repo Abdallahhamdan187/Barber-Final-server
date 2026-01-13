@@ -3,5 +3,6 @@ export default function adminAuth(req, res, next) {
 
     if (role === "admin") return next();
 
-    return res.status(403).json({ message: "Admin access only" });
+
+    return res.status(403).json({ message: "Admin access only!!" });
 }
