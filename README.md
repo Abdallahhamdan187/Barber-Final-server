@@ -44,6 +44,7 @@ DATABASE_URL=postgresql://user:password@localhost:5432/barber_db
 
 node server.js
 
+
 The API will run on:
 ```text
 http://localhost:5000
