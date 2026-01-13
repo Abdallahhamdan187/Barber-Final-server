@@ -121,7 +121,7 @@ userRoutes.put("/:userId/appointments/:appointmentId/cancel", async (req, res) =
     }
 });
 
-userRoutes.delete("/:userId/appointments/:appointmentId/delete", async (req, res) => {
+userRoutes.delete("/:userId/appointments/:appointmentId/Delete", async (req, res) => {
     //delete appointment from database
 
     try {
@@ -131,7 +131,5 @@ userRoutes.delete("/:userId/appointments/:appointmentId/delete", async (req, res
         res.status(500).json({ error: "Internal server error" });
     }
 });
-
-
 
 export default userRoutes;
